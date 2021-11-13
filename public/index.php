@@ -1,4 +1,5 @@
 <?php
+include_once('../template.php');
 
 $reports = [
     (object) [
@@ -25,7 +26,7 @@ $reports = [
 
 ?>
 
-<table class="table table-striped">
+<table>
     <tr>
         <th>Product</th>
         <th>Price</th>
