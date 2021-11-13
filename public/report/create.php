@@ -1,5 +1,5 @@
 <?php
-include_once('../template.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/../template.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
 
 $stores = Store::get();
