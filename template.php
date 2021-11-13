@@ -11,4 +11,5 @@ echo "
             <li><a href='reportForm.php'>Price Reporting</a></li>
         </ul>
     </nav>
+    "
 ;

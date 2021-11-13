@@ -9,7 +9,7 @@ class Store
 
     public static function get($id = null)
     {
-        $connection = require_once($_SERVER['DOCUMENT_ROOT'] . '/../dbconnection.php');
+        $connection = require($_SERVER['DOCUMENT_ROOT'] . '/../dbconnection.php');
         if ($id !== null)
         {
             $result = $connection->query("SELECT * FROM grocery.Store WHERE id = $id");

@@ -1,6 +1,7 @@
 <?php
 include_once('../template.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Report.php');
 
 $reports = [
     (object) [
@@ -25,6 +26,8 @@ $reports = [
     ],
 ];
 
+$report = Report::create('Banana', 0.69, Store::get(1));
+var_dump($report);
 ?>
 
 <table>

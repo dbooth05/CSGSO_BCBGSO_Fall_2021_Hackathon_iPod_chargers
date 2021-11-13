@@ -31,6 +31,7 @@ include_once('../template.php');
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
+
 </body>
 <footer>
     <p>Authors Renze, Fisher, Booth  all </p>
