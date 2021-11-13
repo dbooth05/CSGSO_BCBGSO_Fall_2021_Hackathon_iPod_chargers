@@ -38,13 +38,7 @@ class Report
             $result = $connection->query("SELECT * FROM grocery.Report WHERE id = $id");
             if ($row = $result->fetch_assoc())
             {
-                $report = new Store;
-                $report->id = (int) $row['id'];
-                $report->product = $row['product'];
-                $report->price = (float) $row['price'];
-                $report->store = Store::get((int) $row['store']);
-                $report->time = new DateTime($row['time']);
-                return $report;
+                return self::getFromRow($row);
             }
             return null;
         }
@@ -52,13 +46,19 @@ class Report
         $results = [];
         while ($row = $result->fetch_assoc())
         {
-            $report = new Report;
-            $report->id = (int) $row['id'];
-            $report->product = $row['product'];
-            $report->price = (float) $row['price'];
-            $report->store = Store::get(((int) $row['store']));
-            $report->time = new DateTime($row['time']);
-            $results[] = $report;
+            $results[] = self::getFromRow($row);
+        }
+        return $results;
+    }
+
+    public static function getCheapest()
+    {
+        $connection = require($_SERVER['DOCUMENT_ROOT'] . '/../dbconnection.php');
+        $result = $connection->query("SELECT * FROM grocery.Report WHERE (product, price) IN (SELECT product, MIN(price) FROM grocery.Report GROUP BY product)");
+        $results = [];
+        while ($row = $result->fetch_assoc())
+        {
+            $results[] = self::getFromRow($row);
         }
         return $results;
     }
@@ -70,5 +70,15 @@ class Report
         $query->bind_param('sdis', $product, $price, $store->id, $time);
         $query->execute();
         return self::get($connection->insert_id);
+    }
+
+    private static function getFromRow($row) {
+        $report = new Report;
+        $report->id = (int) $row['id'];
+        $report->product = $row['product'];
+        $report->price = (float) $row['price'];
+        $report->store = Store::get((int) $row['store']);
+        $report->time = new DateTime($row['time']);
+        return $report;
     }
 }

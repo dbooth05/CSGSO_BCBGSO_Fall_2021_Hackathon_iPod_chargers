@@ -3,7 +3,7 @@ include_once('../template.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Report.php');
 
-$reports = Report::get();
+$reports = Report::getCheapest();
 ?>
 
 <table>
