@@ -1,4 +1,5 @@
 <?php
+require_once('Store.php');
 
 class Report 
 {
@@ -43,6 +44,30 @@ class Report
             return null;
         }
         $result = $connection->query("SELECT * FROM grocery.Report");
+        $results = [];
+        while ($row = $result->fetch_assoc())
+        {
+            $results[] = self::getFromRow($row);
+        }
+        return $results;
+    }
+
+    public static function where($conditions = [])
+    {
+        $connection = require($_SERVER['DOCUMENT_ROOT'] . '/../dbconnection.php');
+        $query = "SELECT * FROM grocery.Report";
+
+        $first = true;
+        foreach ($conditions as $condition) {
+            if (!$first)
+            {
+                $query .= " AND";
+            }
+            $query .= " WHERE $condition";
+            $first = false;
+        }
+
+        $result = $connection->query($query);
         $results = [];
         while ($row = $result->fetch_assoc())
         {
