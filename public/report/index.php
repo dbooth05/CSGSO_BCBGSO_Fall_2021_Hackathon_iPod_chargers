@@ -14,7 +14,9 @@ $reports = Report::getCheapest();
     <?php foreach ($reports as $report): ?>
         <tr>
             <td>
-                <?= $report->product ?>
+                <a href="view.php?product=<?= $report->product ?>">
+                    <?= $report->product ?>
+                 </a>
             </td>
             <td> 
                 <?= $report->formatPrice() ?>
