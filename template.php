@@ -6,10 +6,9 @@ echo "
 
     <nav>
         <ul>
-            <li><a href='home.html'>Home</a></li>
             <li><a href='trivia.html'>Trivia</a></li>
             <li><a href='index.php'>Price Comparisons</a></li>
-            <li><a href='reportForm.html'>Price Reporting</a></li>
+            <li><a href='reportForm.php'>Price Reporting</a></li>
         </ul>
     </nav>
-    ";
+;
