@@ -28,7 +28,7 @@ class Report
     }
 
     public function formatPrice() {
-        return sprintf("$%.2f", $this->price);
+        return '$' . number_format($this->price, 2);
     }
 
     public static function get($id = null)
