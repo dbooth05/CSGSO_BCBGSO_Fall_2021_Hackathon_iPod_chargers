@@ -5,9 +5,9 @@ echo "
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
     <nav>
         <ul>
-            <li><a href='trivia.html'>Trivia</a></li>
-            <li><a href='index.php'>Price Comparisons</a></li>
-            <li><a href='report/create.php'>Price Reporting</a></li>
+            <li><a href='/trivia.html'>Trivia</a></li>
+            <li><a href='/'>Price Comparisons</a></li>
+            <li><a href='/report/create.php'>Price Reporting</a></li>
         </ul>
     </nav>
     "
