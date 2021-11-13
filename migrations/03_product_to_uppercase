@@ -1,0 +1,13 @@
+<?php
+$connection = require_once('dbconnection.php');
+
+$query = "UPDATE grocery.Report SET product = UPPER(product)";
+
+if ($connection->query($query) === true)
+{
+    print "Set all products to uppercase.\n";
+}
+else
+{
+    print "$connection->error\n";
+}
