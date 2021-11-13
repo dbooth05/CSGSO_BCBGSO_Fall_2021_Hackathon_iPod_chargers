@@ -1,5 +1,6 @@
 <?php
 include_once('../template.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
 
 $reports = [
     (object) [
