@@ -1,5 +1,8 @@
 <?php
 include_once('../template.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
+
+$stores = Store::get();
 ?>
 
 <head>
@@ -12,19 +15,16 @@ include_once('../template.php');
     
 </header>
 <body>
-    <form>
-        <label for="item">Product Name: </label><br>
-        <input type="text" id="item" name="item"><br>
+    <form action="post.php" method="POST">
+        <label for="product">Product Name: </label><br>
+        <input type="text" id="product" name="product"><br>
         <label for="price">Product Price: </label><br>
         <input type="text" id="price" name="price"><br>
         <label for="store">Store Name: </label><br>
         <select name="store">
-            <option value="null">Please select one</option>
-            <option value="Hy-Vee">Hy-Vee</option>
-            <option value="Walmart">Walmart</option>
-            <option value="Aldi">Aldi</option>
-            <option value="Fareway">Fareway</option>
-            <option value="Target">Target</option>
+            <?php foreach ($stores as $store): ?>
+                <option value="<?= $store->id ?>"><?= "$store->name ($store->address)" ?></option>
+            <?php endforeach; ?>
         </select>
         <br>
         <br>

@@ -26,8 +26,6 @@ $reports = [
     ],
 ];
 
-$report = Report::create('Banana', 0.69, Store::get(1));
-var_dump($report);
 ?>
 
 <table>
