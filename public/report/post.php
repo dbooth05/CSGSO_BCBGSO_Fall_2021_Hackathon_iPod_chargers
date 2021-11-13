@@ -9,4 +9,4 @@ $store = Store::get((int) $_POST['store']);
 
 Report::create($product, $price, $store);
 
-header('Location: ' . $_SERVER['DOCUMENT_ROOT']);
+header('Location: /index.php');

@@ -33,22 +33,15 @@ form {
     padding-left: 20px;
     padding-top: 20px;
 }
-footer {
-    background-color: #630000;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 70px;
-    width: 100%;
-    text-align: center;
-}
-footer p {
-    color: white;
-}
 ol li {
     list-style: none;
 }
 
 .trivia {
+    text-align: center;
+}
+footer {
+    background-color: #630000;
+    color: white;
     text-align: center;
 }

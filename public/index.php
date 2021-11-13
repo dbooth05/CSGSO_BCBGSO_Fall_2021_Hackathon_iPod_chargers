@@ -27,7 +27,6 @@ $reports = [
 ];
 
 ?>
-
 <table>
     <tr>
         <th>Product</th>
