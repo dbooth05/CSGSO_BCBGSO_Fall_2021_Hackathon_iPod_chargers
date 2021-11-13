@@ -17,6 +17,18 @@ class Report
         $query->bind_param('isdssds', $this->id, $this->product, $this->price, $this->formatTime(), $this->product, $this->price, $this->time);
         $query->execute();
     }
+   
+    public function formatTime() {
+        return $this->time->format('Y-m-d H:i:s');
+    }
+
+    public function prettyTime() {
+        return $this->time->format('d M Y h:i A');
+    }
+
+    public function formatPrice() {
+        return sprintf("$%.2f", $this->price);
+    }
 
     public static function get($id = null)
     {
@@ -58,17 +70,5 @@ class Report
         $query->bind_param('sdis', $product, $price, $store->id, $time);
         $query->execute();
         return self::get($connection->insert_id);
-    }
-   
-    public function formatTime() {
-        return $this->time->format('Y-m-d H:i:s');
-    }
-
-    public function prettyTime() {
-        return $this->time->format('d M Y h:i A');
-    }
-
-    public function formatPrice() {
-        return sprintf("$%.2f", $this->price);
     }
 }
