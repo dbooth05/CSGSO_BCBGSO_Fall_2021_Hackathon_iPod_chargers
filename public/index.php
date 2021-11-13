@@ -5,7 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Report.php');
 
 $reports = Report::getCheapest();
 ?>
-
 <table>
     <tr>
         <th>Product</th>
