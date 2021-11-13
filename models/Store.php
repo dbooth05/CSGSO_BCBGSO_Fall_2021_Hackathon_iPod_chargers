@@ -35,5 +35,9 @@ class Store
         }
         return $results;
     }
+
+    public function nameAddress() {
+        return "$this->name ($this->address)";
+    }
     
 }

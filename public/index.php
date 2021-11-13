@@ -3,29 +3,7 @@ include_once('../template.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Store.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/Report.php');
 
-$reports = [
-    (object) [
-        'id' => 0,
-        'product' => 'Banana',
-        'price' => 0.69,
-        'store' => (object) [
-            'id' => 0,
-            'name' => 'Hy-Vee',
-            'address' => '1400 Pennsylvania Avenue',
-        ],
-    ],
-    (object) [
-        'id' => 1,
-        'product' => 'Apple',
-        'price' => 0.40,
-        'store' => (object) [
-            'id' => 1,
-            'name' => 'Fareway',
-            'address' => '123 Ass Street',
-        ],
-    ],
-];
-
+$reports = Report::get();
 ?>
 
 <table>
@@ -40,10 +18,10 @@ $reports = [
                 <?= $report->product ?>
             </td>
             <td> 
-                <?= $report->price ?>
+                <?= $report->formatPrice() ?>
             </td>
             <td>
-                <?= $report->store->name ?>
+                <?= $report->store->nameAddress() ?>
             </td>
         </tr>
     <?php endforeach; ?>

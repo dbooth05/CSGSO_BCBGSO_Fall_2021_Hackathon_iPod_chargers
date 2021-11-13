@@ -36,14 +36,15 @@ class Report
             }
             return null;
         }
-        $result = $connection->query("SELECT * FROM grocery.Store");
+        $result = $connection->query("SELECT * FROM grocery.Report");
         $results = [];
         while ($row = $result->fetch_assoc())
         {
-            $report = new Store;
+            $report = new Report;
             $report->id = (int) $row['id'];
             $report->product = $row['product'];
             $report->price = (float) $row['price'];
+            $report->store = Store::get(((int) $row['store']));
             $report->time = new DateTime($row['time']);
             $results[] = $report;
         }
@@ -65,5 +66,9 @@ class Report
 
     public function prettyTime() {
         return $this->time->format('d M Y h:i A');
+    }
+
+    public function formatPrice() {
+        return sprintf("$%.2f", $this->price);
     }
 }
